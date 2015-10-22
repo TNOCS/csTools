@@ -74,13 +74,15 @@ fs.readFile(filePath, {encoding: 'utf-8'}, function(err,data){
 ConvertData = function (inputJson, rcName) {
     outObj['type'] = "FeatureCollection";
     outObj['features'] = [];
+    var found=0;
     var contourJson = JSON.parse(fs.readFileSync(rcName, 'utf8'));
     inputJson.features.forEach(function(f_in) {
         var id = f_in.properties[inProp];
         contourJson.features.some(function(f){
             if (f.properties[contProp] === id) {
-                console.log(id);
+                //console.log(id);
                 f_in.properties['contour'] = JSON.stringify(f.geometry);
+                found += 1;
                 return true;
             }
             return false;
@@ -88,5 +90,6 @@ ConvertData = function (inputJson, rcName) {
         outObj.features.push(f_in);
     });
     fs.writeFileSync(outFile, JSON.stringify(outObj));
+    console.log('Found ' + found + " out of " + inputJson.features.length);
     console.log('done!');
 };
