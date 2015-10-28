@@ -1,0 +1,43 @@
+{
+  "a33340f5-bd56-4a9b-df3c-690c5fca6ed4": {
+    "tags": [
+      {
+        "text": "erik"
+      },
+      {
+        "text": "vullings"
+      },
+      {
+        "text": "test"
+      }
+    ],
+    "title": "test",
+    "description": "me",
+    "sourceUrl": "http://localhost:3456/api/importers",
+    "contributor": "Erik Vullings",
+    "transformers": [
+      {
+        "title": "Test 1",
+        "id": "939adce4-178b-4b64-6392-6b2369069325"
+      },
+      {
+        "title": "Test 2",
+        "id": "214d2234-6afd-4be6-8c7a-45509a7bb8ee"
+      }
+    ],
+    "id": "a33340f5-bd56-4a9b-df3c-690c5fca6ed4",
+    "repeat": 0,
+    "lastRun": "2015-06-15T15:12:59.304Z"
+  },
+  "a2c6d436-8fd8-4a40-223e-5939a725b0e5": {
+    "tags": [
+      {
+        "text": "test"
+      }
+    ],
+    "title": "JSONstream test",
+    "sourceUrl": "http://isaacs.couchone.com/registry/_all_docs",
+    "contributor": "Erik",
+    "id": "a2c6d436-8fd8-4a40-223e-5939a725b0e5"
+  }
+}
