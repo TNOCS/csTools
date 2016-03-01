@@ -1,0 +1,18 @@
+{
+  "name": "translate-tool",
+  "version": "1.0.0",
+  "description": "Tool to translate csWeb locale files to other languages using Googles Translate service",
+  "main": "translate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "translate",
+    "csweb"
+  ],
+  "author": "Rinze Bruining",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.69.0"
+  }
+}

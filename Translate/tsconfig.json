@@ -1,0 +1,17 @@
+{
+    "compilerOptions" : {
+        "module" : "commonjs",
+        "target" : "es5",
+        "noImplicitAny" : false,
+        "sourceMap" : false
+    },
+    "exclude" : [
+        "node_modules"
+    ],
+    "files" : [
+        "./translate.ts",
+        "./locale-en.ts",
+        "./typings/node/node.d.ts",
+        "./typings/request/request.d.ts"
+    ]
+}
