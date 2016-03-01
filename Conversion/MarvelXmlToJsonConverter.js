@@ -84,7 +84,10 @@ ConvertData = function(inputXml) {
 FormatData = function(jsonMarvel) {
     var j = jsonMarvel; //JSON.parse(jsonMarvel);
     var webConns = [];
+    var webCondConns = [];
     var webVars = [];
+    var webCondVars = [];
+    
     var store = j["Store"];
     var conns = store["Connectors"]["Connector"];
     conns.forEach(function(c) {
@@ -120,10 +123,58 @@ FormatData = function(jsonMarvel) {
         }
         webVars.push(webVariable);
     });
+    
+    if (store.hasOwnProperty("ConditionalConnectors")) {
+        var condconns = store["ConditionalConnectors"]["ConditionalConnector"];
+        if (!condconns.forEach){
+        // If there is only 1 conditionalconnection, it is an object instead of an array
+            var temp = JSON.parse(JSON.stringify(condconns));
+            condconns = [];
+            condconns.push(temp);
+        }
+        condconns.forEach(function(c) {
+            var webCondConnector = {
+                Name: c.Name || '',
+                Description: c.Description,
+                FromVariable: c.SourceId,
+                ToVariable: c.SinkId,
+                Center: {
+                    _x: Math.round(c.Center.X),
+                    _y: Math.round(c.Center.Y)
+                }
+            }
+            webCondConns.push(webCondConnector);
+        });
+        
+        var condvars = store["ConditionalVariables"]["ConditionalVariable"];
+        if (!condvars.forEach){
+        // If there is only 1 conditionalvariable, it is an object instead of an array
+            var temp = JSON.parse(JSON.stringify(condvars));
+            condvars = [];
+            condvars.push(temp);
+        }
+        condvars.forEach(function(v) {
+            var webVariable = {
+                Name: v.Name,
+                Id: v.Id,
+                Description: v.Description,
+                IsControl: v.IsControl,
+                Value: v.InitialValue,
+                Background: v.Background,
+                Center: {
+                    _x: Math.round(v.Center.X),
+                    _y: Math.round(v.Center.Y)
+                }
+            }
+            webCondVars.push(webVariable);
+        });
+    }
     var result = {
         GetModelResult: {
             Connections: webConns,
-            Variables: webVars
+            ConditionalConnections: webCondConns,
+            Variables: webVars,
+            ConditionalVariables: webCondVars
         }
     };
     return result;
