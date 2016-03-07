@@ -13,6 +13,7 @@
   "author": "Rinze Bruining",
   "license": "MIT",
   "dependencies": {
-    "request": "^2.69.0"
+    "request": "^2.69.0",
+    "underscore": "^1.8.3"
   }
 }

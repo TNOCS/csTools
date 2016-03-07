@@ -10,8 +10,11 @@
     ],
     "files" : [
         "./translate.ts",
+        "./translateConnection.ts",
+        "./translators.ts",
         "./locale-en.ts",
         "./typings/node/node.d.ts",
-        "./typings/request/request.d.ts"
+        "./typings/request/request.d.ts",
+        "./typings/underscore/underscore.d.ts"
     ]
 }
