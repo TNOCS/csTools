@@ -3,7 +3,7 @@ rem As gdalwarp does not support AAIGrid as output, we first convert it to VRT, 
 
 for %%f in (*.asc) do (
 	echo Processing %%f
-	"c:/Program Files/QGIS Pisa/bin/gdalwarp.exe" --config GDAL_DATA "c:/OSGeo4W64/share/gdal" -srcnodata -9999 -dstnodata -1 -t_srs EPSG:4296 -s_srs EPSG:28992 -of VRT -r average %%f %%f_intermediate.vrt
+	"c:/Program Files/QGIS Pisa/bin/gdalwarp.exe" --config GDAL_DATA "c:/OSGeo4W64/share/gdal" -srcnodata -9999 -dstnodata -1 -t_srs EPSG:4326 -s_srs EPSG:28992 -of VRT -r average %%f %%f_intermediate.vrt
 	"c:/Program Files/QGIS Pisa/bin/gdal_translate.exe" -of AAIGrid %%f_intermediate.vrt %%f.out
 	del %%f_intermediate.vrt
 )
