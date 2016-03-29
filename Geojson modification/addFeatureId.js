@@ -58,6 +58,7 @@ RenameData = function (inputJson) {
     var counter = 0;
     inputJson.features.forEach(function(f_in) {
         if (f_in) {
+            counter += 1;
             f_in.id = ''.concat(prefix, counter);
             outObj.features.push(f_in);
         }
